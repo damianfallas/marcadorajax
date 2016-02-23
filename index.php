@@ -22,7 +22,8 @@
                     'score-red':  $('#score-red').val(),
                     'fouls-red':  $('#fouls-red').val(),
                     'score-blue': $('#score-blue').val(),
-                    'fouls-blue': $('#fouls-blue').val() 
+                    'fouls-blue': $('#fouls-blue').val(),
+                    'games': $('#games').val()
                 },
                 function(data, status){
                     if(status != "success") {
@@ -61,6 +62,13 @@
                 <div class="pure-control-group">
                     <label for="fouls-blue">Fouls Blue</label>
                     <input id="fouls-blue" type="number" placeholder="" value="0">
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <div class="pure-control-group">
+                    <label for="games">Games</label>
+                    <input id="games" type="number" placeholder="" value="0">
                 </div>
             </fieldset>
 

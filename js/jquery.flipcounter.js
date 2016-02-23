@@ -6,6 +6,7 @@
     var pluginName = 'flipCounter',
         defaults = {
             speed: 0.2,
+            zeroFill: 0,
             onFlip: function() {},
             onResize: function() {}
         };
@@ -32,6 +33,9 @@
         for (i=startNum.length-1; i>=0; i=i-1)
         {
             this.addDigit(startNum[i]);
+        }
+        for (i=startNum.length - this.options.zeroFill; i < 0; i++) {
+            this.addDigit("0");
         }
     };
     
@@ -121,6 +125,12 @@
             {
                 for (i=diff; i<0; i=i+1) {
                     this.removeDigit();
+                }
+            }
+
+            if(this.digits.length < this.options.zeroFill) {
+                for (i=0; i<this.options.zeroFill-this.digits.length+1; i=i+1) {
+                    this.addDigit(0);
                 }
             }
             

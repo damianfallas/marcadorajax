@@ -16,7 +16,6 @@
     <script type="text/javascript" src="js/jstween-1.1.min.js"></script>
     <script type="text/javascript" src="js/jquery.flipcounter.js"></script>
 
-
     <script type="text/javascript">
         var timestamp = "0";
 
@@ -24,8 +23,8 @@
             getData()
             setInterval(function(){ getData(); }, 500);
 
-            $("#flipcounter-score-red,#flipcounter-score-blue,#flipcounter-game").flipCounterInit();
-
+            $("#flipcounter-score-red,#flipcounter-score-blue,#flipcounter-fouls-red,#flipcounter-fouls-blue").flipCounterInit({zeroFill: 2});
+            $("#flipcounter-games").flipCounterInit();
 
             function getData() {
 
@@ -39,8 +38,12 @@
                         $("#flipcounter-score-red").flipCounterUpdate(data['score-red']);
                         $("#flipcounter-score-blue").flipCounterUpdate(data['score-blue']);
 
+                        $("#flipcounter-fouls-red").flipCounterUpdate(data['fouls-red']);
+                        $("#flipcounter-fouls-blue").flipCounterUpdate(data['fouls-blue']);
+
+                        $("#flipcounter-games").flipCounterUpdate(data['games']);
+
                         $('#fouls-red').val(data['fouls-red']);
-                        $('#score-blue').val(data['score-blue']);
                         $('#fouls-blue').val(data['fouls-blue']);
                     }
               });
@@ -48,53 +51,44 @@
 
         })
     </script>
-
-
-
-
-        <script type="text/javascript">
-        // Make the flip counter
-        $("#flipcounter").flipCounterInit({'speed': 0.01});
-
-        var startTime = new Date().getTime();
-
-        // Update values
-        function updateLoop() {
-            var elapsedTime = new Date().getTime() - startTime;
-            $("#flipcounter").flipCounterUpdate(elapsedTime);
-            window.setTimeout(function() {
-                updateLoop();
-            }, 43);
-        }
-
-        // do it!
-        updateLoop();
-    </script>
-
-
-
     
 </head>
 <body>
-
-
-
     <div class="pure-g">
-        <div class="pure-u-1-2">
-            <div id="flipcounter-score-red" style="text-align: center;">0</div>
-            REDs
+        <div class="pure-u-1-3 red">
+            <div id="flipcounter-score-red" style="text-align: center;">00</div>
         </div>
-        <div class="pure-u-1-2">
-            <div id="flipcounter-score-blue" style="text-align: center;">0</div>
-            BlUEs
+        <div class="pure-u-1-3">
+            <img class="logolti" src="images/logolti.png">
+        </div>
+        <div class="pure-u-1-3">
+            <div id="flipcounter-score-blue" style="text-align: center;">00</div>
         </div>
     </div>
     <div class="pure-g">
-        <div class="pure-u-1">
-            <div id="flipcounter-game" style="text-align: center;">0</div>
-            GAME
+        <div class="pure-u-1-3 red">
+            Rojo
+        </div>
+        <div class="pure-u-1-3">
+            <div id="flipcounter-games" style="text-align: center;">0</div>
+        </div>
+        <div class="pure-u-1-3 blue">
+            Azul
         </div>
     </div>
-
+    <div class="pure-g fouls-panel">
+        <div class="pure-u-1-8">
+            <img src="images/kazoo.png" class="kazoo">
+        </div>
+        <div class="pure-u-1-8">
+            <div id="flipcounter-fouls-red" style="text-align: center;">00</div>
+        </div>
+        <div class="pure-u-1-8">
+            <div id="flipcounter-fouls-blue" style="text-align: center;">00</div>
+        </div>
+        <div class="pure-u-1-8">
+            <img src="images/kazoo.png" class="kazoo">
+        </div>
+    </div>
 </body>
 </html>
