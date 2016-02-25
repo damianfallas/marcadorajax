@@ -45,8 +45,24 @@
 
                         $('#fouls-red').val(data['fouls-red']);
                         $('#fouls-blue').val(data['fouls-blue']);
+
+                        console.log(data['lights']);
+
+                        if (data['lights']=='true') {
+                            turnoff();
+                        } else {
+                            turnon();
+                        }
                     }
               });
+            }
+
+            function turnon() {
+                $('.light').fadeIn();
+            }
+
+            function turnoff() {
+                $('.light').fadeOut();
             }
 
         })
@@ -54,6 +70,7 @@
     
 </head>
 <body>
+    <div class="light" style="display: none;"></div>
     <div class="pure-g">
         <div class="pure-u-1-3 red">
             <div id="flipcounter-score-red" style="text-align: center;">00</div>
@@ -77,17 +94,18 @@
         </div>
     </div>
     <div class="pure-g fouls-panel">
-        <div class="pure-u-1-8">
-            <img src="images/kazoo.png" class="kazoo">
+        <div class="pure-u-1-4">
+            
         </div>
-        <div class="pure-u-1-8">
-            <div id="flipcounter-fouls-red" style="text-align: center;">00</div>
+        <div class="pure-u-1-2">
+            <div class="center">
+                <div id="flipcounter-fouls-red" style="text-align: center;">00</div>
+                <img src="images/kazoo.png" class="kazoo" />
+                <div id="flipcounter-fouls-blue" style="text-align: center;">00</div>
+            </div>
         </div>
-        <div class="pure-u-1-8">
-            <div id="flipcounter-fouls-blue" style="text-align: center;">00</div>
-        </div>
-        <div class="pure-u-1-8">
-            <img src="images/kazoo.png" class="kazoo">
+        <div class="pure-u-1-4">
+            
         </div>
     </div>
 </body>

@@ -1,4 +1,9 @@
-<!doctype html>
+<?php
+
+    @$file = file_get_contents("./php/score.json");
+    @$var = json_decode($file, true);
+
+?><!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -19,6 +24,7 @@
             $("#btn-score-update").click(function(){
                 $.post("php/score-update.php",
                 {
+                    'lights':  $('#lights').is(':checked'),
                     'score-red':  $('#score-red').val(),
                     'fouls-red':  $('#fouls-red').val(),
                     'score-blue': $('#score-blue').val(),
@@ -43,32 +49,38 @@
         <form class="pure-form pure-form-aligned">
             <fieldset>
                 <div class="pure-control-group">
+                    <label for="lights">Light Switch</label>
+                    <input id="lights" type="checkbox" checked="<?php echo $var['lights']; ?>">
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="pure-control-group">
                     <label for="score-red">Score Red</label>
-                    <input id="score-red" type="number" placeholder="" value="0">
+                    <input id="score-red" type="number" placeholder="" value="<?php echo $var['score-red']; ?>">
                 </div>
 
                 <div class="pure-control-group">
                     <label for="fouls-red">Fouls Red</label>
-                    <input id="fouls-red" type="number" placeholder="" value="0">
+                    <input id="fouls-red" type="number" placeholder="" value="<?php echo $var['fouls-red']; ?>">
                 </div>
             </fieldset>
 
             <fieldset>
                 <div class="pure-control-group">
                     <label for="score-blue">Score Blue</label>
-                    <input id="score-blue" type="number" placeholder="" value="0">
+                    <input id="score-blue" type="number" placeholder="" value="<?php echo $var['score-blue']; ?>">
                 </div>
 
                 <div class="pure-control-group">
                     <label for="fouls-blue">Fouls Blue</label>
-                    <input id="fouls-blue" type="number" placeholder="" value="0">
+                    <input id="fouls-blue" type="number" placeholder="" value="<?php echo $var['fouls-blue']; ?>">
                 </div>
             </fieldset>
 
             <fieldset>
                 <div class="pure-control-group">
                     <label for="games">Games</label>
-                    <input id="games" type="number" placeholder="" value="0">
+                    <input id="games" type="number" placeholder="" value="<?php echo $var['games']; ?>">
                 </div>
             </fieldset>
 
