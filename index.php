@@ -43,17 +43,16 @@
 </head>
 <body>
 
-
     <div class="l-content">
 
+        <div class="pure-menu pure-menu-horizontal">
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item"><a href="scoreboard.php" class="pure-menu-link" target="_blank">Scoreboard</a></li>
+            </ul>
+        </div>
+
         <form class="pure-form pure-form-aligned">
-            <fieldset>
-                <div class="pure-control-group">
-                    <label for="lights">Light Switch</label>
-                    <input id="lights" type="checkbox" checked="<?php echo $var['lights']; ?>">
-                </div>
-            </fieldset>
-            <fieldset>
+            <fieldset class="red">
                 <div class="pure-control-group">
                     <label for="score-red">Score Red</label>
                     <input id="score-red" type="number" placeholder="" value="<?php echo $var['score-red']; ?>">
@@ -65,7 +64,7 @@
                 </div>
             </fieldset>
 
-            <fieldset>
+            <fieldset class="blue">
                 <div class="pure-control-group">
                     <label for="score-blue">Score Blue</label>
                     <input id="score-blue" type="number" placeholder="" value="<?php echo $var['score-blue']; ?>">
@@ -81,6 +80,13 @@
                 <div class="pure-control-group">
                     <label for="games">Games</label>
                     <input id="games" type="number" placeholder="" value="<?php echo $var['games']; ?>">
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <div class="pure-control-group">
+                    <label for="lights">Light Switch</label>
+                    <input id="lights" type="checkbox" checked="<?php echo $var['lights']; ?>">
                 </div>
             </fieldset>
 

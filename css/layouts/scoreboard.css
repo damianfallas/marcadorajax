@@ -7,6 +7,12 @@ body {
     color: #eee;
     text-align: center;
     font-size: 10vw;
+    overflow:hidden;
+    height: 100%;
+}
+
+.pure-g {
+    height: 33%;
 }
 
 #flipcounter-score-red, #flipcounter-score-blue {

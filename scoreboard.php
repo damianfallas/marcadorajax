@@ -72,6 +72,8 @@
 <body>
     <div class="light" style="display: none;"></div>
     <div class="pure-g">
+
+        <!-- SCORES -->
         <div class="pure-u-1-3 red">
             <div id="flipcounter-score-red" style="text-align: center;">00</div>
         </div>
@@ -81,8 +83,9 @@
         <div class="pure-u-1-3">
             <div id="flipcounter-score-blue" style="text-align: center;">00</div>
         </div>
-    </div>
-    <div class="pure-g">
+
+
+        <!-- TEXT and games -->
         <div class="pure-u-1-3 red">
             Rojo
         </div>
@@ -92,12 +95,12 @@
         <div class="pure-u-1-3 blue">
             Azul
         </div>
-    </div>
-    <div class="pure-g fouls-panel">
+
+
+        <!-- FOULS -->
         <div class="pure-u-1-4">
-            
         </div>
-        <div class="pure-u-1-2">
+        <div class="pure-u-1-2 fouls-panel">
             <div class="center">
                 <div id="flipcounter-fouls-red" style="text-align: center;">00</div>
                 <img src="images/kazoo.png" class="kazoo" />
@@ -105,7 +108,6 @@
             </div>
         </div>
         <div class="pure-u-1-4">
-            
         </div>
     </div>
 </body>
