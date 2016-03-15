@@ -84,6 +84,10 @@
             <div id="flipcounter-score-blue" style="text-align: center;">00</div>
         </div>
 
+        <div class="pure-u-1 ledboard">
+            Mensajes 00:00:00
+        </div>
+
 
         <!-- TEXT and games -->
         <div class="pure-u-1-3 red">

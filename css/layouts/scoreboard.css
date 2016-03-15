@@ -2,6 +2,18 @@
  * -- BASE STYLES --
  * Most of these are inherited from Base, but I want to change a few.
  */
+ @font-face {
+    font-family: 'serif_led_board';
+    src: url('../../fonts/serif_led_board-7-webfont.eot');
+    src: url('../../fonts/serif_led_board-7-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/serif_led_board-7-webfont.woff2') format('woff2'),
+         url('../../fonts/serif_led_board-7-webfont.woff') format('woff'),
+         url('../../fonts/serif_led_board-7-webfont.ttf') format('truetype'),
+         url('../../fonts/serif_led_board-7-webfont.svg#serif_led_board-7regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     background: url("../../images/grain_big.png") repeat scroll 0 0%, #1c1d1f none repeat scroll 0 0;
     color: #eee;
@@ -80,4 +92,8 @@ body {
     left:0;
     top:0;
     z-index:100;
+}
+
+.ledboard {
+    font-family: serif_led_board;
 }
