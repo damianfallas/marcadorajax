@@ -18,7 +18,6 @@
 
     <script src="js/jquery-2.2.0.min.js"></script>
 
-
     <script type="text/javascript">
         $( document ).ready(function() {
             $("#btn-score-update").click(function(){
@@ -29,6 +28,9 @@
                     'fouls-red':  $('#fouls-red').val(),
                     'score-blue': $('#score-blue').val(),
                     'fouls-blue': $('#fouls-blue').val(),
+                    'led-mode': $('input[name=led-mode]:checked').val(),
+                    'led-message': $('#led-message').val(),
+                    'led-time': (parseInt($('#led-minutes').val()) * 60000) + (parseInt($('#led-seconds').val()) * 1000) + parseInt($('#led-millisecond').val()),
                     'games': $('#games').val()
                 },
                 function(data, status){
@@ -73,6 +75,34 @@
                 <div class="pure-control-group">
                     <label for="fouls-blue">Fouls Blue</label>
                     <input id="fouls-blue" type="number" placeholder="" value="<?php echo $var['fouls-blue']; ?>">
+                </div>
+            </fieldset>
+
+            <fieldset class="">
+                <div class="pure-control-group">
+                    <label for="led-mode">LED board Mode</label>
+                    <label for="led-mode-message" class="pure-radio">
+                        <input id="led-mode-message" type="radio" name="led-mode" value="led-mode-message" checked>Text Scroll
+                    </label>
+                    <label for="led-mode-watch" class="pure-radio">
+                        <input id="led-mode-watch" type="radio" name="led-mode" value="led-mode-watch">Stop Watch
+                    </label>
+                </div>
+            </fieldset>
+
+            <fieldset class="">
+                <div class="pure-control-group">
+                    <label for="led-message">LED board Message</label>
+                    <input id="led-message" type="text" placeholder="" value="<?php echo $var['led-message']; ?>">
+                </div>
+            </fieldset>
+
+            <fieldset class="">
+                <div class="pure-control-group">
+                    <label for="led-message">LED board Time</label>
+                    <input id="led-minutes" type="number" placeholder="" value="00">
+                    <input id="led-seconds" type="number" placeholder="" value="00">
+                    <input id="led-millisecond" type="number" placeholder="" value="00">
                 </div>
             </fieldset>
 

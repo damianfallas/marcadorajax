@@ -3,13 +3,12 @@
  * Most of these are inherited from Base, but I want to change a few.
  */
  @font-face {
-    font-family: 'serif_led_board';
-    src: url('../../fonts/serif_led_board-7-webfont.eot');
-    src: url('../../fonts/serif_led_board-7-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../../fonts/serif_led_board-7-webfont.woff2') format('woff2'),
-         url('../../fonts/serif_led_board-7-webfont.woff') format('woff'),
-         url('../../fonts/serif_led_board-7-webfont.ttf') format('truetype'),
-         url('../../fonts/serif_led_board-7-webfont.svg#serif_led_board-7regular') format('svg');
+    font-family: 'led_board';
+    src: url('../../fonts/LEDFixedWidthSemiCondensedBold.eot');
+    src: url('../../fonts/LEDFixedWidthSemiCondensedBold.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/LEDFixedWidthSemiCondensedBold.woff') format('woff'),
+         url('../../fonts/LEDFixedWidthSemiCondensedBold.ttf') format('truetype'),
+         url('../../fonts/LEDFixedWidthSemiCondensedBold.svg#LEDFixedWidthSemiCondensedBold') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -19,7 +18,7 @@ body {
     color: #eee;
     text-align: center;
     font-size: 10vw;
-    overflow:hidden;
+    //overflow:hidden;
     height: 100%;
 }
 
@@ -95,5 +94,15 @@ body {
 }
 
 .ledboard {
-    font-family: serif_led_board;
+    font-family: led_board !important;
+    font-size: 0.8em;
+}
+
+.blink {
+  animation: blinker 0.5s linear infinite;
+}
+@keyframes blinker {
+  50% {
+    opacity: 0.5;
+  }
 }

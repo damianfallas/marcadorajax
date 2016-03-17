@@ -12,9 +12,10 @@
     <link rel="stylesheet" href="css/pure/grids-responsive-min.css">
     <link rel="stylesheet" href="css/jquery.flipcounter.css">
 
-    <script src="js/jquery-2.2.0.min.js"></script>
+    <script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
     <script type="text/javascript" src="js/jstween-1.1.min.js"></script>
     <script type="text/javascript" src="js/jquery.flipcounter.js"></script>
+    <script type="text/javascript" src="js/jquery.runner-min.js"></script>
 
     <script type="text/javascript">
         var timestamp = "0";
@@ -43,10 +44,38 @@
 
                         $("#flipcounter-games").flipCounterUpdate(data['games']);
 
+                        if(data['led-mode'] == "led-mode-message") {
+                            $("#led-message").html(data['led-message']).show();
+                            $("#led-watch").html(data['led-message']).hide();
+
+                        } if(data['led-mode'] == "led-mode-watch") {
+                            $("#led-message").html(data['led-message']).hide();
+                            $("#led-watch").html(data['led-message']).show();
+                            $('#led-watch').removeClass('blink');
+
+                            $('#led-watch').runner({
+                                countdown: true,
+                                startAt: data['led-time'],
+                                autostart: true,
+                                stopAt: 30 * 1000,
+                                format: function(value) {
+                                    var ms = value % 1000;
+                                    value = (value - ms) / 1000;
+                                    var secs = value % 60;
+                                    value = (value - secs) / 60;
+                                    var mins = value % 60;
+                                    var hrs = (value - mins) / 60;
+                                    ms = (ms > 99)? parseInt(ms/10) : ms;
+                                    return pad2(hrs) + ':' + pad2(mins) + ':' + pad2(secs) + '.' + pad2(ms);
+                                }
+                            }).on('runnerFinish', function(eventObject, info) {
+                                $('#led-watch').addClass('blink');
+                            });
+
+                        }
+
                         $('#fouls-red').val(data['fouls-red']);
                         $('#fouls-blue').val(data['fouls-blue']);
-
-                        console.log(data['lights']);
 
                         if (data['lights']=='true') {
                             turnoff();
@@ -63,6 +92,10 @@
 
             function turnoff() {
                 $('.light').fadeOut();
+            }
+            
+            function pad2(number) { 
+                return (number < 10 ? '0' : '') + number; 
             }
 
         })
@@ -85,9 +118,9 @@
         </div>
 
         <div class="pure-u-1 ledboard">
-            Mensajes 00:00:00
+            <div id="led-message"></div>
+            <div id="led-watch"></div>
         </div>
-
 
         <!-- TEXT and games -->
         <div class="pure-u-1-3 red">
