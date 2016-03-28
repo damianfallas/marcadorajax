@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/pure/pure-min.css">
     <link rel="stylesheet" href="css/layouts/dashboard.css">
     <link rel="stylesheet" href="css/pure/grids-responsive-min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
 
     <script src="js/jquery-2.2.0.min.js"></script>
 
@@ -23,6 +24,7 @@
             $("#btn-score-update").click(function(){
                 $.post("php/score-update.php",
                 {
+                    'update-mode' : 'data',
                     'lights':  $('#lights').is(':checked'),
                     'score-red':  $('#score-red').val(),
                     'fouls-red':  $('#fouls-red').val(),
@@ -38,6 +40,57 @@
                         alert("Data: " + data + "\nStatus: " + status);
                     }
                 });
+            });
+
+            function sendState(data, value) {
+                $.post("php/score-update.php",
+                {
+                    'update-mode' : 'state',
+                    data:  data,
+                    value:  value
+                },
+                function(data, status){
+                    if(status != "success") {
+                        alert("Data: " + data + "\nStatus: " + status);
+                    }
+                });
+            }
+
+            $("#lights").click(function() {
+                if($('#lights i').hasClass('fa-toggle-off')) {
+                    sendState('lights', true);
+                    $('#lights i').removeClass('fa-toggle-off').addClass('fa-toggle-on');
+                } else {
+                    sendState('lights', false);
+                    $('#lights i').removeClass('fa-toggle-on').addClass('fa-toggle-off');
+                }
+            });
+
+            $("#btn-watch-start").click(function() {
+                sendState('swatch-action', 'start');
+            });
+
+            $("#btn-watch-reset").click(function() {
+                sendState('swatch-action', 'reset');
+            });
+
+            $("#btn-watch-pause").click(function() {
+                sendState('swatch-action', 'pause');
+            });
+
+            $(".plus.pure-button").click(function() {
+                steps = $(this).data('forsteps');
+                steps = (steps)?steps:1;
+                console.log(steps);
+                elem = $( '#' + $(this).data('for') );
+                elem.val(parseInt(elem.val()) + steps);
+            });
+            $(".minus.pure-button").click(function() {
+                steps = $(this).data('forsteps');
+                steps = (steps)?steps:1;
+                elem = $( '#' + $(this).data('for') );
+                n = parseInt(elem.val()) - steps
+                elem.val( (n<0)?0:n );
             });
         })
     </script>
@@ -58,11 +111,15 @@
                 <div class="pure-control-group">
                     <label for="score-red">Score Red</label>
                     <input id="score-red" type="number" placeholder="" value="<?php echo $var['score-red']; ?>">
+                    <button type="button" data-for="score-red" class="plus pure-button pure-button-primary"><i class="fa fa-plus"></i></button>
+                    <button type="button" data-for="score-red" class="minus pure-button pure-button-primary"><i class="fa fa-minus"></i></i></button>
                 </div>
 
                 <div class="pure-control-group">
                     <label for="fouls-red">Fouls Red</label>
                     <input id="fouls-red" type="number" placeholder="" value="<?php echo $var['fouls-red']; ?>">
+                    <button type="button" data-for="fouls-red" class="plus pure-button pure-button-primary"><i class="fa fa-plus"></i></button>
+                    <button type="button" data-for="fouls-red" class="minus pure-button pure-button-primary"><i class="fa fa-minus"></i></i></button>
                 </div>
             </fieldset>
 
@@ -70,11 +127,15 @@
                 <div class="pure-control-group">
                     <label for="score-blue">Score Blue</label>
                     <input id="score-blue" type="number" placeholder="" value="<?php echo $var['score-blue']; ?>">
+                    <button type="button" data-for="score-blue" class="plus pure-button pure-button-primary"><i class="fa fa-plus"></i></button>
+                    <button type="button" data-for="score-blue" class="minus pure-button pure-button-primary"><i class="fa fa-minus"></i></i></button>
                 </div>
 
                 <div class="pure-control-group">
                     <label for="fouls-blue">Fouls Blue</label>
                     <input id="fouls-blue" type="number" placeholder="" value="<?php echo $var['fouls-blue']; ?>">
+                    <button type="button" data-for="fouls-blue" class="plus pure-button pure-button-primary"><i class="fa fa-plus"></i></button>
+                    <button type="button" data-for="fouls-blue" class="minus pure-button pure-button-primary"><i class="fa fa-minus"></i></i></button>
                 </div>
             </fieldset>
 
@@ -93,16 +154,34 @@
             <fieldset class="">
                 <div class="pure-control-group">
                     <label for="led-message">LED board Message</label>
-                    <input id="led-message" type="text" placeholder="" value="<?php echo $var['led-message']; ?>">
+                    <textarea id="led-message" class="pure-input-1-4"><?php echo $var['led-message']; ?></textarea>
                 </div>
             </fieldset>
 
             <fieldset class="">
                 <div class="pure-control-group">
                     <label for="led-message">LED board Time</label>
-                    <input id="led-minutes" type="number" placeholder="" value="00">
-                    <input id="led-seconds" type="number" placeholder="" value="00">
-                    <input id="led-millisecond" type="number" placeholder="" value="00">
+                    <div class="pure-u-1-5">
+                        <input id="led-minutes" type="number" placeholder="" value="00">
+                        <button type="button" data-for="led-minutes" class="plus pure-button pure-button-primary"><i class="fa fa-plus"></i></button>
+                        <button type="button" data-for="led-minutes" class="minus pure-button pure-button-primary"><i class="fa fa-minus"></i></i></button>
+                    </div>
+                    <div class="pure-u-1-5">
+                        <input id="led-seconds" type="number" placeholder="" value="00">
+                        <button type="button" data-for="led-seconds" class="plus pure-button pure-button-primary"><i class="fa fa-plus"></i></button>
+                        <button type="button" data-for="led-seconds" class="minus pure-button pure-button-primary"><i class="fa fa-minus"></i></i></button>
+                    </div>
+                    <div class="pure-u-1-5">
+                        <input id="led-millisecond" type="number" placeholder="" value="00">
+                        <button type="button" data-for="led-millisecond" class="plus pure-button pure-button-primary"><i class="fa fa-plus"></i></button>
+                        <button type="button" data-for="led-millisecond" class="minus pure-button pure-button-primary"><i class="fa fa-minus"></i></i></button>
+                    </div>
+                </div>
+                <div class="pure-control-group">
+                    <label for=""></label>
+                    <button id="btn-watch-start" type="button" class="pure-button pure-button-primary"><i class="fa fa-play"></i></button>
+                    <button id="btn-watch-pause" type="button" class="pure-button pure-button-primary"><i class="fa fa-pause"></i></button>
+                    <button id="btn-watch-reset" type="button" class="pure-button pure-button-primary"><i class="fa fa-undo"></i></button>
                 </div>
             </fieldset>
 
@@ -116,7 +195,7 @@
             <fieldset>
                 <div class="pure-control-group">
                     <label for="lights">Light Switch</label>
-                    <input id="lights" type="checkbox" checked="<?php echo $var['lights']; ?>">
+                    <button id="lights" type="button" class="pure-button pure-button-primary pure-button-active"><i class="fa fa-toggle-on"></i></button>
                 </div>
             </fieldset>
 
