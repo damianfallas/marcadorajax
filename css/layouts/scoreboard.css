@@ -14,7 +14,7 @@
 }
 
 body {
-    background: url("../../images/grain_big.png") repeat scroll 0 0%, #1c1d1f none repeat scroll 0 0;
+    background: url("../../images/wood.jpg") repeat scroll 0 0%, #1c1d1f none repeat scroll 0 0;
     color: #eee;
     text-align: center;
     font-size: 10vw;
@@ -96,6 +96,16 @@ body {
 .ledboard {
     font-family: led_board !important;
     font-size: 0.8em;
+    border-color: #2e2f37 #222226 -moz-use-text-color;
+    border-image: none;
+    border-radius: 1px 1px 0 0;
+    border-style: solid solid none;
+    box-shadow: 0 -2px 6px 1px rgba(0, 0, 0, 0.25);
+    background: url("../../images/grain.png") repeat scroll 0 0%, #242529 none repeat scroll 0 0
+}
+
+.games {
+    margin-top: 2%;
 }
 
 .blink {
