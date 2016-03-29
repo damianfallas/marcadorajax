@@ -112,9 +112,16 @@ body {
   animation: blinker 0.5s linear infinite;
 }
 
+@keyframes blinker {
+  50% {
+    opacity: 0.5;
+  }
+}
+
 #led-message ul {
   display: inline-block;
   height: 1em;
+  line-height: 1em;
   margin: 0;
   overflow: hidden;
   padding: 0;
@@ -126,10 +133,4 @@ body {
     white-space: nowrap;
     list-style-type: none;
     height: 1em;
-}
-
-@keyframes blinker {
-  50% {
-    opacity: 0.5;
-  }
 }

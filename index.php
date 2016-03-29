@@ -3,6 +3,20 @@
     @$file = file_get_contents("./php/score.json");
     @$var = json_decode($file, true);
 
+            
+    $stamp = $var['led-time'];
+    $ms = $stamp % 1000;
+    $stamp = ($stamp - $ms) / 1000;
+    $secs = $stamp % 60;
+    $stamp = ($stamp - $secs) / 60;
+    $mins = $stamp % 60;
+    $hrs = ($stamp - $mins) / 60;
+    $ms = ($ms > 99)? parseInt($ms/10) : $ms;
+
+    // $mins = str_pad($mins, 2, "0", STR_PAD_LEFT);
+    // $secs = str_pad($secs, 2, "0", STR_PAD_LEFT);
+    // $ms = str_pad($ms, 2, "0", STR_PAD_LEFT);
+
 ?><!doctype html>
 <html lang="en">
 <head>
@@ -14,10 +28,11 @@
 
     <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/layouts/dashboard.css">
+    <link rel="stylesheet" href="css/bootstrap-slider.min.css">
 
     <script src="js/jquery-2.2.0.min.js"></script>
     <script src="css/bootstrap/js/bootstrap.min.js"></script>
-    <script src="css/jasny-bootstrap/js/jasny-bootstrap.min.js"></script>
+    <script src="js/bootstrap-slider.min.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -144,6 +159,15 @@
                 elem.val( (n<0)?0:n );
             });
 
+            $("#range-minutes, #range-milliseconds, #range-seconds").on("change", function() {
+
+                min = $('#range-minutes').val();
+                mil = $('#range-milliseconds').val();
+                sec = $('#range-seconds').val();
+
+                $('#time').val(pad2(min) + ':' + pad2(sec) + '.' + pad2(mil));
+            });
+
             $('*[data-watchbtn]').click(function() {
                 n = $(this).data('watchbtn');
                 time = $('#time').val().replace(':', '').replace('.', '').substring(1,6);
@@ -156,6 +180,10 @@
                 sen = time[3] + time[4];
                 mis = time[6] + time[7];
                 return (parseInt(min) * 60 * 1000) + (parseInt(sen) * 1000) + parseInt(mis);
+            }
+
+            function pad2(number) { 
+                return (number < 10 ? '0' : '') + number; 
             }
         })
     </script>
@@ -261,7 +289,7 @@
                     <div class="form-group">
                         <div class="row">
                             <div class="col-xs-12">
-                                <button id="btn-score-update" type="button" class="btn btn-primary btn-lg col-xs-12 btn-success">Submit</button>
+                                <button id="btn-score-update" type="button" class="btn btn-primary btn-lg col-xs-12 btn-success"><i class="glyphicon glyphicon-send"></i> Submit</button>
                             </div>
                         </div>
                     </div>
@@ -281,7 +309,7 @@
                     <div class="form-group">
                         <div class="row">
                             <div class="col-xs-12">
-                                <button id="btn-led-message-update" type="button" class="btn btn-primary btn-lg col-xs-12 btn-success">Submit</button>
+                                <button id="btn-led-message-update" type="button" class="btn btn-primary btn-lg col-xs-12 btn-success"><i class="glyphicon glyphicon-send"></i> Submit</button>
                             </div>
                         </div>
                     </div>
@@ -293,11 +321,28 @@
 
                             <div class="form-group form-group-lg">
                                 <div class="input-group">
-                                    <input id="time" data-mask="99:99.99" class="form-control" type="text" placeholder="" value="00:00.00">
+                                    <input id="time" class="form-control" type="text" value="<?php echo "$min:$secs.$ms"; ?>" disabled>
                                     <div class="input-group-btn">
+                                        <button id="btn-led-time-update" type="button" class="btn btn-primary btn-lg btn-success"><i class="glyphicon glyphicon-send"></i></button>
                                         <button id="btn-watch-start" type="button" class="btn btn-primary btn-lg"><i class="glyphicon glyphicon-play"></i></button>
                                         <button id="btn-watch-pause" type="button" class="btn btn-primary btn-lg"><i class="glyphicon glyphicon-pause"></i></button>
                                         <button id="btn-watch-reset" type="button" class="btn btn-primary btn-lg"><i class="glyphicon glyphicon-stop"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-4">
+                                        <label for="range-minutes">Minutes<br /></label>
+                                        <input type="text" name="range-minutes" id="range-minutes" data-provide="slider" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="<?php echo $mins; ?>" data-slider-tooltip="show">
+                                    </div>
+                                    <div class="col-xs-12 col-md-4">
+                                        <label for="range-seconds">Seconds<br /></label>
+                                        <input type="text" name="range-seconds" id="range-seconds" data-provide="slider" data-slider-min="0" data-slider-max="59" data-slider-step="1" data-slider-value="<?php echo $secs; ?>" data-slider-tooltip="show">
+                                    </div>
+                                    <div class="col-xs-12 col-md-4">
+                                        <label for="range-seconds">Milliseconds<br /></label>
+                                         <input type="text" name="range-milliseconds" id="range-milliseconds" data-provide="slider" data-slider-min="0" data-slider-max="99" data-slider-step="1" data-slider-value="<?php echo $ms; ?>" data-slider-tooltip="show">
                                     </div>
                                 </div>
                             </div>
@@ -351,21 +396,11 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <button id="btn-led-time-update" type="button" class="btn btn-primary btn-lg col-xs-12 btn-success">Submit</button>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
 
             </div>
         </div>
     </div>
-
-
 
     <script type="text/javascript">
         $('.nav-tabs a').click(function (e) {

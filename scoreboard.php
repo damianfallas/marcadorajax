@@ -25,19 +25,20 @@
             $("#flipcounter-score-red,#flipcounter-score-blue,#flipcounter-fouls-red,#flipcounter-fouls-blue").flipCounterInit({zeroFill: 2});
             $("#flipcounter-games").flipCounterInit();
 
-            getData(true)
+            getData(true);
             setInterval(function(){ getData(false); }, 500);
 
             function getData(init) {
 
-                $.getJSON( 'php/score.json?v=' + Math.floor((Math.random() * 9999) + 1000) , {
+                $.getJSON( 'php/score.json', {
                 })
                 .done(function( data ) {
-                    console.log(timestamp);
+                    //console.log(timestamp);
 
                     if(parseInt(data['stamp']) > parseInt(timestamp)) {
                         console.log(data['update-mode']);
 
+                        timestamp = data['stamp'];
 
                         //SCORE PANELS
                         if ((data['update-mode'] == 'score-update' || init)) {
@@ -46,12 +47,12 @@
                             $("#flipcounter-fouls-red").flipCounterUpdate(data['fouls-red']);
                             $("#flipcounter-fouls-blue").flipCounterUpdate(data['fouls-blue']);
                             $("#flipcounter-games").flipCounterUpdate(data['games']);
+                        }
 
                         //LED MESSAGE
-                        } 
-
                         if (data['update-mode'] == 'led-message-update' || init) {
                             var messages = data['led-message'].split("\n");
+                            console.log(data['stamp']);
                             var ul = $('<ul />');
                             $.each(messages, function(i){
                                 //alert(messages[i]);
@@ -73,10 +74,9 @@
                             }
 
                             $("#led-watch").hide();
+                        }
 
                         //UPDATE TIME
-                        } 
-
                         if (data['update-mode'] == 'led-time-update' || init) {
                             $("#led-watch").remove();
                             $(".ledboard").append('<div id="led-watch"></div>');
@@ -108,8 +108,8 @@
 
                         //DINAMIC
                         if (data['update-mode'] == 'state' || init) {
-                            console.log('data:' + data['data']);
-                            console.log('value:' +data['value']);
+                            //console.log('data:' + data['data']);
+                            //console.log('value:' +data['value']);
 
                             if (data['data']=='lights') {
                                 if(data['value']!='true') {
@@ -156,44 +156,44 @@
     <div class="container-fluid">
 
         <!-- SCORES -->
-        <div class="col-md-4 red">
+        <div class="col-xs-4 red">
             <div id="flipcounter-score-red" style="text-align: center;">00</div>
         </div>
-        <div class="col-md-4">
+        <div class="col-xs-4">
             <img class="logolti" src="images/logolti.png">
         </div>
-        <div class="col-md-4">
+        <div class="col-xs-4">
             <div id="flipcounter-score-blue" style="text-align: center;">00</div>
         </div>
 
-        <div class="col-md-12 ledboard">
+        <div class="col-xs-12 ledboard">
             <div id="led-message">m</div>
             <div id="led-watch">m</div>
         </div>
 
         <!-- TEXT and games -->
-        <div class="col-md-4 red">
+        <div class="col-xs-4 red">
             Rojo
         </div>
-        <div class="col-md-4 games">
+        <div class="col-xs-4 games">
             <div id="flipcounter-games" style="text-align: center;">0</div>
         </div>
-        <div class="col-md-4 blue">
+        <div class="col-xs-4 blue">
             Azul
         </div>
 
 
         <!-- FOULS -->
-        <div class="col-md-4">
+        <div class="col-xs-4">
         </div>
-        <div class="col-md-4 fouls-panel">
+        <div class="col-xs-4 fouls-panel">
             <div class="center">
                 <div id="flipcounter-fouls-red" style="text-align: center;">00</div>
                 <img src="images/kazoo.png" class="kazoo" />
                 <div id="flipcounter-fouls-blue" style="text-align: center;">00</div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-xs-4">
         </div>
     </div>
 </body>
