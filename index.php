@@ -321,7 +321,7 @@
 
                             <div class="form-group form-group-lg">
                                 <div class="input-group">
-                                    <input id="time" class="form-control" type="text" value="<?php echo "$min:$secs.$ms"; ?>" disabled>
+                                    <input id="time" class="form-control" type="text" value="<?php echo "$mins:$secs.$ms"; ?>" disabled>
                                     <div class="input-group-btn">
                                         <button id="btn-led-time-update" type="button" class="btn btn-primary btn-lg btn-success"><i class="glyphicon glyphicon-send"></i></button>
                                         <button id="btn-watch-start" type="button" class="btn btn-primary btn-lg"><i class="glyphicon glyphicon-play"></i></button>
@@ -332,67 +332,32 @@
                             </div>
                             <div class="form-group">
                                 <div class="row">
-                                    <div class="col-xs-12 col-md-4">
+                                    <div class="col-xs-12 col-md-12">
                                         <label for="range-minutes">Minutes<br /></label>
-                                        <input type="text" name="range-minutes" id="range-minutes" data-provide="slider" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="<?php echo $mins; ?>" data-slider-tooltip="show">
                                     </div>
-                                    <div class="col-xs-12 col-md-4">
+                                    <div class="col-xs-12 col-md-12">
+                                        <input class="col-md-12" type="text" name="range-minutes" id="range-minutes" data-provide="slider" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="<?php echo $mins; ?>" data-slider-tooltip="show">
+                                        <button type="button" data-for="range-minutes" class="plus btn btn-default"><i class="glyphicon glyphicon-plus"></i></button>
+                                        <button type="button" data-for="range-minutes" class="minus btn btn-default"><i class="glyphicon glyphicon-minus"></i></button>
+                                    </div>
+                                    <div class="col-xs-12 col-md-12">
                                         <label for="range-seconds">Seconds<br /></label>
-                                        <input type="text" name="range-seconds" id="range-seconds" data-provide="slider" data-slider-min="0" data-slider-max="59" data-slider-step="1" data-slider-value="<?php echo $secs; ?>" data-slider-tooltip="show">
                                     </div>
-                                    <div class="col-xs-12 col-md-4">
+                                    <div class="col-xs-12 col-md-12">
+                                        <input class="col-md-12" type="text" name="range-seconds" id="range-seconds" data-provide="slider" data-slider-min="0" data-slider-max="59" data-slider-step="1" data-slider-value="<?php echo $secs; ?>" data-slider-tooltip="show">
+                                        <button type="button" data-for="range-seconds" class="plus btn btn-default"><i class="glyphicon glyphicon-plus"></i></button>
+                                        <button type="button" data-for="range-seconds" class="minus btn btn-default"><i class="glyphicon glyphicon-minus"></i></button>
+                                    </div>
+                                    <div class="col-xs-12 col-md-12">
                                         <label for="range-seconds">Milliseconds<br /></label>
-                                         <input type="text" name="range-milliseconds" id="range-milliseconds" data-provide="slider" data-slider-min="0" data-slider-max="99" data-slider-step="1" data-slider-value="<?php echo $ms; ?>" data-slider-tooltip="show">
+                                    </div>
+                                    <div class="col-xs-12 col-md-12">
+                                         <input class="col-md-12" type="text" name="range-milliseconds" id="range-milliseconds" data-provide="slider" data-slider-min="0" data-slider-max="99" data-slider-step="1" data-slider-value="<?php echo $ms; ?>" data-slider-tooltip="show">
+                                         <button type="button" data-for="range-milliseconds" class="plus btn btn-default"><i class="glyphicon glyphicon-plus"></i></button>
+                                        <button type="button" data-for="range-milliseconds" class="minus btn btn-default"><i class="glyphicon glyphicon-minus"></i></button>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-xs-4">
-                                        <button type="button" class="btn btn-primary btn-lg col-xs-12" data-watchbtn="1">1</button>
-                                    </div>
-                                    <div class="col-xs-4">
-                                        <button type="button" class="btn btn-primary btn-lg col-xs-12" data-watchbtn="2">2</button>
-                                    </div>
-                                    <div class="col-xs-4">
-                                        <button type="button" class="btn btn-primary btn-lg col-xs-12" data-watchbtn="3">3</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-xs-4">
-                                        <button type="button" class="btn btn-primary btn-lg col-xs-12" data-watchbtn="4">4</button>
-                                    </div>
-                                    <div class="col-xs-4">
-                                        <button type="button" class="btn btn-primary btn-lg col-xs-12" data-watchbtn="5"><u>5</u></button>
-                                    </div>
-                                    <div class="col-xs-4">
-                                        <button type="button" class="btn btn-primary btn-lg col-xs-12" data-watchbtn="6">6</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-xs-4">
-                                        <button type="button" class="btn btn-primary btn-lg col-xs-12" data-watchbtn="7">7</button>
-                                    </div>
-                                    <div class="col-xs-4">
-                                        <button type="button" class="btn btn-primary btn-lg col-xs-12" data-watchbtn="8">8</button>
-                                    </div>
-                                    <div class="col-xs-4">
-                                        <button type="button" class="btn btn-primary btn-lg col-xs-12" data-watchbtn="9">9</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <button type="button" class="btn btn-primary btn-lg col-xs-12" data-watchbtn="0">0</button>
-                                    </div>
-                                </div>
-                            </div>
-
+                            </div>                           
                         </div>
                     </div>
 
