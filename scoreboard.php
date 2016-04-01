@@ -16,6 +16,7 @@
     <script type="text/javascript" src="js/jquery.flipcounter.js"></script>
     <script type="text/javascript" src="js/jquery.runner-min.js"></script>
     <script type="text/javascript" src="js/jquery.newsTicker.js"></script>
+    <script type='text/javascript' src='js/jquery.marquee.min.js'></script>
 
     <script type="text/javascript">
         var timestamp = "0";
@@ -24,6 +25,7 @@
             $.ajaxSetup({ cache:false });
             $("#flipcounter-score-red,#flipcounter-score-blue,#flipcounter-fouls-red,#flipcounter-fouls-blue").flipCounterInit({zeroFill: 2});
             $("#flipcounter-games").flipCounterInit();
+            $('#led-message').marquee();
 
             getData(true);
             setInterval(function(){ getData(false); }, 500);
@@ -36,7 +38,7 @@
                     //console.log(timestamp);
 
                     if(parseInt(data['stamp']) > parseInt(timestamp)) {
-                        //console.log(data['update-mode']);
+                        console.log(data['update-mode']);
 
                         timestamp = data['stamp'];
 
@@ -51,6 +53,13 @@
 
                         //LED MESSAGE
                         if (data['update-mode'] == 'led-message-update' || init) {
+
+                            $("#led-message").html(data['led-message']);
+                            $("#led-watch").hide();
+                            $("#led-message").show();
+                            $("#led-message").marquee();
+
+                            /*
                             var messages = data['led-message'].split("\n");
                             //console.log(data['stamp']);
                             var ul = $('<ul />');
@@ -72,8 +81,9 @@
                             } else {
                                 $("#led-message ul").newsTicker('start');
                             }
+                            
 
-                            $("#led-watch").hide();
+                            $("#led-watch").hide();*/
                         }
 
                         //UPDATE TIME
@@ -173,35 +183,39 @@
     <div class="light-logo" style="display: none;"></div>
     <div class="container-fluid">
 
-        <!-- SCORES -->
-        <div class="col-xs-4 red">
-            <div id="flipcounter-score-red">00</div>
-            <p>ROJO</p>
-        </div>
-        <div class="col-xs-4">
-            <p class="centertitle">MATCH DE IMPROVISACI&Oacute;N</p>
-            <div class="ledboard">
-                <div id="led-message"></div>
-                <div id="led-watch"></div>
+        <div class="row row-eq-height">
+            
+            <!-- SCORES -->
+            <div class="col-xs-4 red">
+                <div id="flipcounter-score-red">00</div>
+                <p>ROJO</p>
             </div>
-        </div>
-        <div class="col-xs-4 blue">
-            <div id="flipcounter-score-blue">00</div>
-            <p>AZUL</p>
-        </div>
+            <div class="col-xs-4">
+                <p class="centertitle">MATCH DE IMPROVISACI&Oacute;N</p>
+                <div class="ledboard">
+                    <div id="led-message" data-duplicated='true'></div>
+                    <div id="led-watch"></div>
+                </div>
+            </div>
+            <div class="col-xs-4 blue">
+                <div id="flipcounter-score-blue">00</div>
+                <p>AZUL</p>
+            </div>
 
-        <!-- TEXT and games -->
-        <div class="col-xs-4 top">
-            <div id="flipcounter-fouls-red">00</div>
-            <p>FALTAS</p>
-        </div>
-        <div class="col-xs-4 top">
-            <div id="flipcounter-games">0</div>
-            <p>JUEGOS</p>
-        </div>
-        <div class="col-xs-4 top">
-            <div id="flipcounter-fouls-blue">00</div>
-            <p>FALTAS</p>
+            <!-- TEXT and games -->
+            <div class="col-xs-4 top">
+                <div id="flipcounter-fouls-red">00</div>
+                <p>FALTAS</p>
+            </div>
+            <div class="col-xs-4 top">
+                <div id="flipcounter-games">0</div>
+                <p>JUEGOS</p>
+            </div>
+            <div class="col-xs-4 top">
+                <div id="flipcounter-fouls-blue">00</div>
+                <p>FALTAS</p>
+            </div>
+
         </div>
     </div>
 </body>
