@@ -15,7 +15,6 @@
     <script type="text/javascript" src="js/jstween-1.1.min.js"></script>
     <script type="text/javascript" src="js/jquery.flipcounter.js"></script>
     <script type="text/javascript" src="js/jquery.runner-min.js"></script>
-    <script type="text/javascript" src="js/jquery.newsTicker.js"></script>
     <script type='text/javascript' src='js/jquery.marquee.min.js'></script>
 
     <script type="text/javascript">
@@ -58,32 +57,6 @@
                             $("#led-watch").hide();
                             $("#led-message").show();
                             $("#led-message").marquee();
-
-                            /*
-                            var messages = data['led-message'].split("\n");
-                            //console.log(data['stamp']);
-                            var ul = $('<ul />');
-                            $.each(messages, function(i){
-                                //alert(messages[i]);
-                                $('<li/>').text(messages[i]).appendTo(ul);
-                            });
-                            $("#led-message").html(ul);
-                            $("#led-message").show();
-
-                            $("#led-message ul").newsTicker({
-                                row_height:  $("#led-message ul").height(),
-                                duration: 1000,
-                                max_rows: 1,
-                            });
-
-                            if($('#led-message ul li').length <= 1) {
-                                $("#led-message ul").newsTicker('stop');
-                            } else {
-                                $("#led-message ul").newsTicker('start');
-                            }
-                            
-
-                            $("#led-watch").hide();*/
                         }
 
                         //UPDATE TIME
