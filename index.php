@@ -123,12 +123,22 @@
             }
 
             $("#lights").click(function() {
-                if($('#lights i').hasClass('fa-toggle-off')) {
+                if($('#lights i').hasClass('glyphicon-eye-close')) {
                     sendState('lights', true);
-                    $('#lights i').removeClass('fa-toggle-off').addClass('fa-toggle-on');
+                    $('#lights i').removeClass('glyphicon-eye-close').addClass('glyphicon-eye-open');
                 } else {
                     sendState('lights', false);
-                    $('#lights i').removeClass('fa-toggle-on').addClass('fa-toggle-off');
+                    $('#lights i').removeClass('glyphicon-eye-open').addClass('glyphicon-eye-close');
+                }
+            });
+
+            $("#lights-logo").click(function() {
+                if($('#lights-logo i').hasClass('glyphicon-record')) {
+                    sendState('lights-logo', true);
+                    $('#lights-logo i').removeClass('glyphicon-record').addClass('glyphicon-asterisk');
+                } else {
+                    sendState('lights-logo', false);
+                    $('#lights-logo i').removeClass('glyphicon-asterisk').addClass('glyphicon-record');
                 }
             });
 
@@ -147,7 +157,6 @@
             $(".plus.btn").click(function() {
                 steps = $(this).data('forsteps');
                 steps = (steps)?steps:1;
-                console.log(steps);
                 elem = $( '#' + $(this).data('for') );
                 elem.val(parseInt(elem.val()) + steps);
             });
@@ -190,15 +199,18 @@
     
 </head>
 <body>
+
     <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-            Scoreboard <sup>DASH</sup>
+        <div class="container-fluid"> 
+            <div class="navbar-header">
+                <p class="navbar-brand">Scoreboard <sup>DASH</sup></p>
+            </div> 
+            <div class="nav navbar-nav navbar-right">
+                <a class="btn btn-default navbar-btn" href="scoreboard.php" target="blank"><i class="glyphicon glyphicon-modal-window"></i></a>
+                <button id="lights-logo" class="btn btn-default navbar-btn" type="button"><i class="glyphicon glyphicon-asterisk"></i></button>
+                <button id="lights" class="btn btn-default navbar-btn" type="button"><i class="glyphicon glyphicon-eye-open"></i></button>
+            </div> 
         </div>
-        <div class="nav navbar-nav navbar-right">
-            <button id="lights" type="button" class="btn btn-default"><i class="glyphicon glyphicon-eye-open"></i></button>
-        </div>
-      </div>
     </nav>
 
     <div class="container">

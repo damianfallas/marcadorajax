@@ -13,6 +13,16 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Franklin Gothic Demi Cond';
+    src: url('../../fonts/FranklinGothic-DemiCond.eot');
+    src: url('../../fonts/FranklinGothic-DemiCond.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/FranklinGothic-DemiCond.woff') format('woff'),
+        url('../../fonts/FranklinGothic-DemiCond.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     background: url("../../images/wood.jpg") repeat scroll 0 0%, #1c1d1f none repeat scroll 0 0;
     color: #eee;
@@ -26,14 +36,17 @@ body {
     height: 33%;
 }
 
+p {
+    margin: 0;
+}
+
 #flipcounter-score-red, #flipcounter-score-blue {
     margin-top: 15%;
     font-size: 1.5em;
 }
 
 #flipcounter-fouls-red, #flipcounter-fouls-blue, .kazoo {
-    width: 45%;
-    float: left;
+
 }
 
 .kazoo {
@@ -64,17 +77,32 @@ body {
     width: 50%
 }
 
-.red {
-    color: #a81515;
-    text-shadow: 0px 0px 4px rgba(255, 255, 255, 1);
-    font-family: Impact !important;
+p {
+    font-family: 'Franklin Gothic Demi Cond';
+    line-height: 1em;
+    font-size: 0.5em;
 }
 
-.blue {
-    color: #1515a8;
+.centertitle {
+    margin: 9% 0;
     text-shadow: 0px 0px 4px rgba(255, 255, 255, 1);
-    font-family: Impact !important;
+    color: #1b1b1e;
 }
+
+.red p, .blue p {
+    font-size: 1em;
+    text-shadow: 0px 0px 4px rgba(255, 255, 255, 1);
+    line-height: 0.75em;
+}
+
+.red p {
+    color: #a81515;
+}
+
+.blue p {
+    color: #1515a8;
+}
+
 .right > * {
     float: right;
 }
@@ -91,7 +119,28 @@ body {
     left:0;
     top:0;
     z-index:100;
+    margin: 0;
+    padding: 0;
 }
+
+.light-logo {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    position:absolute;
+    left:0;
+    top:0;
+    z-index:100;
+    margin: 0;
+    padding: 0;
+
+
+    background-image: url("../../images/logolti.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+}
+
 
 .ledboard {
     font-family: led_board !important;
@@ -99,12 +148,11 @@ body {
     border-color: #2e2f37 #222226 -moz-use-text-color;
     border-image: none;
     border-radius: 1px 1px 0 0;
-    border-style: solid solid none;
     box-shadow: 0 -2px 6px 1px rgba(0, 0, 0, 0.25);
-    background: url("../../images/grain.png") repeat scroll 0 0%, #242529 none repeat scroll 0 0
+    background: url("../../images/grain.png") repeat scroll 0 0%, #242529 none repeat scroll 0 0;
 }
 
-.games {
+.top {
     margin-top: 2%;
 }
 

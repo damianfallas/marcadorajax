@@ -36,7 +36,7 @@
                     //console.log(timestamp);
 
                     if(parseInt(data['stamp']) > parseInt(timestamp)) {
-                        console.log(data['update-mode']);
+                        //console.log(data['update-mode']);
 
                         timestamp = data['stamp'];
 
@@ -52,7 +52,7 @@
                         //LED MESSAGE
                         if (data['update-mode'] == 'led-message-update' || init) {
                             var messages = data['led-message'].split("\n");
-                            console.log(data['stamp']);
+                            //console.log(data['stamp']);
                             var ul = $('<ul />');
                             $.each(messages, function(i){
                                 //alert(messages[i]);
@@ -119,6 +119,14 @@
                                 }
                             }
 
+                            if (data['data']=='lights-logo') {
+                                if(data['value']!='true') {
+                                    turnlogoon();
+                                } else {
+                                    turnlogooff();
+                                }
+                            }
+
                             if (data['data']=='swatch-action') {
                                 if(data['value']=='start') {
                                     $('#led-watch').runner('start');
@@ -142,6 +150,15 @@
             function turnoff() {
                 $('.light').fadeOut();
             }
+
+            function turnlogoon() {
+                $('.light-logo').fadeIn();
+            }
+
+            function turnlogooff() {
+                $('.light-logo').fadeOut();
+            }
+            
             
             function pad2(number) { 
                 return (number < 10 ? '0' : '') + number; 
@@ -153,47 +170,38 @@
 </head>
 <body>
     <div class="light" style="display: none;"></div>
+    <div class="light-logo" style="display: none;"></div>
     <div class="container-fluid">
 
         <!-- SCORES -->
         <div class="col-xs-4 red">
-            <div id="flipcounter-score-red" style="text-align: center;">00</div>
+            <div id="flipcounter-score-red">00</div>
+            <p>ROJO</p>
         </div>
         <div class="col-xs-4">
-            <img class="logolti" src="images/logolti.png">
+            <p class="centertitle">MATCH DE IMPROVISACI&Oacute;N</p>
+            <div class="ledboard">
+                <div id="led-message"></div>
+                <div id="led-watch"></div>
+            </div>
         </div>
-        <div class="col-xs-4">
-            <div id="flipcounter-score-blue" style="text-align: center;">00</div>
-        </div>
-
-        <div class="col-xs-12 ledboard">
-            <div id="led-message">m</div>
-            <div id="led-watch">m</div>
+        <div class="col-xs-4 blue">
+            <div id="flipcounter-score-blue">00</div>
+            <p>AZUL</p>
         </div>
 
         <!-- TEXT and games -->
-        <div class="col-xs-4 red">
-            Rojo
+        <div class="col-xs-4 top">
+            <div id="flipcounter-fouls-red">00</div>
+            <p>FALTAS</p>
         </div>
-        <div class="col-xs-4 games">
-            <div id="flipcounter-games" style="text-align: center;">0</div>
+        <div class="col-xs-4 top">
+            <div id="flipcounter-games">0</div>
+            <p>JUEGOS</p>
         </div>
-        <div class="col-xs-4 blue">
-            Azul
-        </div>
-
-
-        <!-- FOULS -->
-        <div class="col-xs-4">
-        </div>
-        <div class="col-xs-4 fouls-panel">
-            <div class="center">
-                <div id="flipcounter-fouls-red" style="text-align: center;">00</div>
-                <img src="images/kazoo.png" class="kazoo" />
-                <div id="flipcounter-fouls-blue" style="text-align: center;">00</div>
-            </div>
-        </div>
-        <div class="col-xs-4">
+        <div class="col-xs-4 top">
+            <div id="flipcounter-fouls-blue">00</div>
+            <p>FALTAS</p>
         </div>
     </div>
 </body>
