@@ -28,12 +28,7 @@ body {
     color: #eee;
     text-align: center;
     font-size: 10vw;
-    //overflow:hidden;
-    height: 100%;
-}
-
-.pure-g {
-    height: 33%;
+    overflow:hidden;
 }
 
 p {
@@ -80,7 +75,7 @@ p {
 p {
     font-family: 'Franklin Gothic Demi Cond';
     line-height: 1em;
-    font-size: 0.5em;
+    font-size: 0.45em
 }
 
 .centertitle {
@@ -133,8 +128,6 @@ p {
     z-index:100;
     margin: 0;
     padding: 0;
-
-
     background-image: url("../../images/logolti.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -155,10 +148,10 @@ p {
 }
 
 #led-message, #led-watch {
-  width: 100%;
-  overflow: hidden;
-  font-family: led_board !important;
-    font-size: 0.8em;
+    width: 100%;
+    overflow: hidden;
+    font-family: led_board !important;
+    font-size: 0.75em;
     border-color: #2e2f37 #222226 -moz-use-text-color;
     border-image: none;
     border-radius: 1px 1px 0 0;
