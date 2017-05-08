@@ -23,12 +23,33 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'digital-7';
+    src: url('../../fonts/digital-7.eot');
+    src: url('../../fonts/digital-7.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/digital-7.woff') format('woff'),
+        url('../../fonts/digital-7.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html, body {
+	height: 100%;
+}
+
+
 body {
-    background: url("../../images/wood.jpg") repeat scroll 0 0%, #1c1d1f none repeat scroll 0 0;
+    background-color: #000;
     color: #eee;
     text-align: center;
     font-size: 10vw;
     overflow:hidden;
+	font-family: led_board !important;
+	
+	background-image: url(../../images/duplas/leyorden.png), url(../../images/duplas/dagas.png);
+	background-repeat: no-repeat, no-repeat;
+	background-position: bottom left, bottom right;
+	background-size: 30%, 19%;
 }
 
 p {
@@ -72,16 +93,24 @@ p {
     width: 50%
 }
 
-p {
+p, span.fk {
     font-family: 'Franklin Gothic Demi Cond';
     line-height: 1em;
-    font-size: 0.45em
+    font-size: 1em
+}
+
+.dupla {
+	width: 10%;
 }
 
 .centertitle {
     margin: 9% 0;
     text-shadow: 0px 0px 4px rgba(255, 255, 255, 1);
     color: #1b1b1e;
+}
+
+.centertitle img {
+    width: 60%;
 }
 
 .red p, .blue p {
@@ -156,6 +185,5 @@ p {
     border-image: none;
     border-radius: 1px 1px 0 0;
     box-shadow: 0 -2px 6px 1px rgba(0, 0, 0, 0.25);
-    background: url("../../images/grain.png") repeat scroll 0 0%, #242529 none repeat scroll 0 0;
     text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
 }

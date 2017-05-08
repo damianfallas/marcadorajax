@@ -13,7 +13,6 @@
 
     <script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
     <script type="text/javascript" src="js/jstween-1.1.min.js"></script>
-    <script type="text/javascript" src="js/jquery.flipcounter.js"></script>
     <script type="text/javascript" src="js/jquery.runner-min.js"></script>
     <script type='text/javascript' src='js/jquery.marquee.min.js'></script>
     <script type='text/javascript' src='js/js-scoreboard.js'></script>
@@ -25,14 +24,12 @@
     <div class="container-fluid">
 
         <div class="row">
-            
             <!-- SCORES -->
             <div class="col-xs-4 red">
                 <div id="flipcounter-score-red">00</div>
-                <p>ROJO</p>
             </div>
             <div class="col-xs-4">
-                <p class="centertitle">MATCH DE IMPROVISACI&Oacute;N</p>
+                <p class="centertitle"><img src="images/logoIF.png"></p>
                 <div class="ledboard">
                     <div id="led-message" data-duplicated='true'></div>
                     <div id="led-watch"></div>
@@ -40,21 +37,18 @@
             </div>
             <div class="col-xs-4 blue">
                 <div id="flipcounter-score-blue">00</div>
-                <p>AZUL</p>
             </div>
         </div>
-        <div class="row">
-
+        <div class="row"  style="display: none;">
             <!-- TEXT and games -->
-            <div class="col-xs-4 top">
+            <div class="col-xs-4 top" style="display: none;">
                 <div id="flipcounter-fouls-red">00</div>
                 <p>FALTAS</p>
             </div>
-            <div class="col-xs-4 top">
-                <div id="flipcounter-games">0</div>
-                <p>JUEGOS</p>
+            <div class="col-xs-12 top">
+                <span class="fk">ROUND</span> <span id="flipcounter-games">0</span>
             </div>
-            <div class="col-xs-4 top">
+            <div class="col-xs-4 top" style="display: none;">
                 <div id="flipcounter-fouls-blue">00</div>
                 <p>FALTAS</p>
             </div>

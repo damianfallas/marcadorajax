@@ -2,8 +2,6 @@ var timestamp = "0";
 
 $( document ).ready(function() {
     $.ajaxSetup({ cache:false });
-    $("#flipcounter-score-red,#flipcounter-score-blue,#flipcounter-fouls-red,#flipcounter-fouls-blue").flipCounterInit({zeroFill: 2});
-    $("#flipcounter-games").flipCounterInit();
     $('#led-message').marquee();
 
     getData(true);
@@ -23,11 +21,11 @@ $( document ).ready(function() {
 
                 //SCORE PANELS
                 if ((data['update-mode'] == 'score-update' || init)) {
-                    $("#flipcounter-score-red").flipCounterUpdate(data['score-red']);
-                    $("#flipcounter-score-blue").flipCounterUpdate(data['score-blue']);
-                    $("#flipcounter-fouls-red").flipCounterUpdate(data['fouls-red']);
-                    $("#flipcounter-fouls-blue").flipCounterUpdate(data['fouls-blue']);
-                    $("#flipcounter-games").flipCounterUpdate(data['games']);
+                    $("#flipcounter-score-red").html(pad2(data['score-red']));
+                    $("#flipcounter-score-blue").html(pad2(data['score-blue']));
+                    $("#flipcounter-fouls-red").html(pad2(data['fouls-red']));
+                    $("#flipcounter-fouls-blue").html(pad2(data['fouls-blue']));
+                    $("#flipcounter-games").html(data['games']);
                 }
 
                 //LED MESSAGE
