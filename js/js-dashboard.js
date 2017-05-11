@@ -103,6 +103,16 @@ $( document ).ready(function() {
         }
     });
 
+    $("#bgexp").click(function() {
+        if($('#bgexp i').hasClass('glyphicon-collapse-down')) {
+            sendState('bgexp', true);
+            $('#bgexp i').removeClass('glyphicon-collapse-down').addClass('glyphicon-collapse-up');
+        } else {
+            sendState('bgexp', false);
+            $('#bgexp i').removeClass('glyphicon-collapse-up').addClass('glyphicon-collapse-down');
+        }
+    });
+
     $("#btn-watch-start").click(function() {
         sendState('swatch-action', 'start');
     });

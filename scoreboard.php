@@ -19,39 +19,47 @@
     
 </head>
 <body>
+	<video playsinline autoplay muted loop class="bgvid bg" style="display: none;">
+		<source src="vid/PeacefulFlow.mp4" type="video/mp4">
+	</video>
+    <video playsinline autoplay muted loop class="bgvid bgs" style="display: none;">
+        <source src="vid/exploding.mp4" type="video/mp4">
+    </video>
     <div class="light" style="display: none;"></div>
     <div class="light-logo" style="display: none;"></div>
+	<div class="duplas-bg"></div>
     <div class="container-fluid">
 
         <div class="row">
             <!-- SCORES -->
             <div class="col-xs-4 red">
-                <div id="flipcounter-score-red">00</div>
+                <div id="flipcounter-score-red" class="shadow-text">00</div>
             </div>
             <div class="col-xs-4">
                 <p class="centertitle"><img src="images/logoIF.png"></p>
-                <div class="ledboard">
+                <div class="ledboard shadow-text">
                     <div id="led-message" data-duplicated='true'></div>
                     <div id="led-watch"></div>
                 </div>
             </div>
             <div class="col-xs-4 blue">
-                <div id="flipcounter-score-blue">00</div>
+                <div id="flipcounter-score-blue" class="shadow-text">00</div>
             </div>
         </div>
-        <div class="row"  style="display: none;">
+        <div class="row">
             <!-- TEXT and games -->
-            <div class="col-xs-4 top" style="display: none;">
+            <!-- div class="col-xs-4 top" style="display: none;">
                 <div id="flipcounter-fouls-red">00</div>
                 <p>FALTAS</p>
-            </div>
+            </div -->
             <div class="col-xs-12 top">
-                <span class="fk">ROUND</span> <span id="flipcounter-games">0</span>
+                <span id="flipcounter-games" class="shadow-text">0</span><br />
+                <p class="fk shadow-text">ROUND</p>
             </div>
-            <div class="col-xs-4 top" style="display: none;">
+            <!-- div class="col-xs-4 top" style="display: none;">
                 <div id="flipcounter-fouls-blue">00</div>
                 <p>FALTAS</p>
-            </div>
+            </div-->
 
         </div>
     </div>

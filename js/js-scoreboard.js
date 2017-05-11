@@ -88,6 +88,16 @@ $( document ).ready(function() {
                         }
                     }
 
+                    if (data['data']=='bgexp') {
+                        if(data['value']!='true') {
+                            bgexpon();
+                            console.log("01");
+                        } else {
+                            bgexpoff();
+                            console.log("02");
+                        }
+                    }
+
                     if (data['data']=='swatch-action') {
                         if(data['value']=='start') {
                             $('#led-watch').runner('start');
@@ -120,6 +130,15 @@ $( document ).ready(function() {
         $('.light-logo').fadeOut();
     }
     
+    function bgexpon() {
+        $('.bgvid.bgs').fadeIn();
+        $('.bgvid.bg').fadeOut();
+    }
+
+    function bgexpoff() {
+        $('.bgvid.bg').fadeIn();
+        $('.bgvid.bgs').fadeOut();
+    }
     
     function pad2(number) { 
         return (number < 10 ? '0' : '') + number; 

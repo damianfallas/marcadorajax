@@ -64,6 +64,7 @@
                 <a class="btn btn-default navbar-btn" href="scoreboard.php" target="blank"><i class="glyphicon glyphicon-modal-window"></i></a>
                 <button id="lights-logo" class="btn btn-default navbar-btn" type="button"><i class="glyphicon glyphicon-asterisk"></i></button>
                 <button id="lights" class="btn btn-default navbar-btn" type="button"><i class="glyphicon glyphicon-eye-open"></i></button>
+                <button id="bgexp" class="btn btn-default navbar-btn" type="button"><i class="glyphicon glyphicon-collapse-down"></i></button>
             </div> 
         </div>
     </nav>
