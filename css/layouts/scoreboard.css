@@ -174,10 +174,66 @@ p.fk {
     margin: 0;
     padding: 0;
 	height: 100%;
-	background-image: url(../../images/duplas/leyorden2.png), url(../../images/duplas/dagas2.png);
+}
+
+.duplas-bg-right {
+	background-repeat: no-repeat;
+	background-position: bottom right;
+}
+
+.duplas-bg-left {
 	background-repeat: no-repeat, no-repeat;
-	background-position: bottom left, bottom right;
-	background-size: 37%, 25%;
+	background-position: bottom left;
+}
+
+.barberos-l .duplas-bg-left{
+	background-image: url(../../images/duplas/01b.png);
+	background-size: 25%;
+}
+
+.barberos-r .duplas-bg-right{
+	background-image: url(../../images/duplas/01.png);
+	background-size: 25%;
+}
+
+.mediasligas-l .duplas-bg-left{
+	background-image: url(../../images/duplas/02b.png);
+	background-size: 25%;
+}
+
+.mediasligas-r .duplas-bg-right{
+	background-image: url(../../images/duplas/02.png);
+	background-size: 25%;
+}
+
+.ciruninjas-l .duplas-bg-left{
+	background-image: url(../../images/duplas/03.png);
+	background-size: 32%;
+}
+
+.ciruninjas-r .duplas-bg-right{
+	background-image: url(../../images/duplas/03.png);
+	background-size: 32%;
+}
+
+.coperos-l .duplas-bg-left{
+	background-image: url(../../images/duplas/04.png);
+	background-size: 26%;
+}
+
+.coperos-r .duplas-bg-right{
+	background-image: url(../../images/duplas/04.png);
+	background-size: 26%;
+}
+
+.renegados-l .duplas-bg-left{
+	background-image: url(../../images/duplas/05.png);
+	background-size: 23%;
+}
+
+.renegados-r .duplas-bg-right{
+	background-image: url(../../images/duplas/05.png);
+	background-size: 23%;
 }
 
 

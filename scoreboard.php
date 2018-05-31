@@ -18,7 +18,7 @@
     <script type='text/javascript' src='js/js-scoreboard.js'></script>
     
 </head>
-<body>
+<body class="barberos-l barberos-r"> <!-- barberos-l barberos-r mediasligas-l mediasligas-r ciruninjas-l ciruninjas-r renegados-l renegados-r coperos-l coperos-r -->
 	<video playsinline autoplay muted loop class="bgvid bg" style="display: none;">
 		<source src="vid/PeacefulFlow.mp4" type="video/mp4">
 	</video>
@@ -27,7 +27,8 @@
     </video>
     <div class="light" style="display: none;"></div>
     <div class="light-logo" style="display: none;"></div>
-	<div class="duplas-bg"></div>
+	<div class="duplas-bg duplas-bg-left"></div>
+    <div class="duplas-bg duplas-bg-right"></div>
     <div class="container-fluid">
 
         <div class="row">
