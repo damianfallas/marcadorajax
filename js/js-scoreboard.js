@@ -37,6 +37,11 @@ $( document ).ready(function() {
                     $("#led-message").marquee();
                 }
 
+                //Characters
+                if (data['update-mode'] == 'characters-update' || init) {
+                    $('body').attr('class','').addClass(data['left_character'] + '-l').addClass(data['right_character'] + '-r');
+                }
+
                 //UPDATE TIME
                 if (data['update-mode'] == 'led-time-update' || init) {
                     $("#led-watch").remove();

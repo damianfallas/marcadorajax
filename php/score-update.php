@@ -32,6 +32,12 @@
 		$scores->{'update-mode'} = 'state';
 		$scores->{'data'} = (isset($_POST['data']))?$_POST['data']:true;
 		$scores->{'value'} = (isset($_POST['value']))?$_POST['value']:true;
+
+	} else if($_POST['update-mode'] == 'characters-update') {
+
+		$scores->{'update-mode'} = 'characters-update';
+		$scores->{'left_character'} = (isset($_POST['left_character']))?$_POST['left_character']:false;
+		$scores->{'right_character'} = (isset($_POST['right_character']))?$_POST['right_character']:false;
 	}
 
 	file_put_contents('score.json',json_encode($scores));

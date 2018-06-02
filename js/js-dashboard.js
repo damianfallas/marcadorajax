@@ -47,6 +47,21 @@ $( document ).ready(function() {
         });
     });
 
+    //Characters
+    $("#btn-character-update").click(function(){
+        $.post("php/score-update.php",
+        {
+            'update-mode' : 'characters-update',
+            'left_character': $('#left_character').val(),
+            'right_character': $('#right_character').val(),
+        },
+        function(data, status){
+            if(status != "success") {
+                alert("Data: " + data + "\nStatus: " + status);
+            }
+        });
+    });
+
 
     $("#btn-score-pend").click(function(){
         $.post("php/score-update.php",

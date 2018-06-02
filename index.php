@@ -3,7 +3,6 @@
     @$file = file_get_contents("./php/score.json");
     @$var = json_decode($file, true);
 
-            
     $stamp = $var['led-time'];
     $ms = $stamp % 1000;
     $stamp = ($stamp - $ms) / 1000;
@@ -47,6 +46,11 @@
             // on load of the page: switch to the currently selected tab
             var hash = window.location.hash;
             $('a[href="' + hash + '"]').tab('show');
+
+            //choose correct option in selects
+            $('#left_character option[value="<?php echo $var['left_character']; ?>"]').attr("selected", "selected");
+            $('#right_character option[value="<?php echo $var['right_character']; ?>"]').attr("selected", "selected");
+
         });
     </script>
 
@@ -75,6 +79,7 @@
                 <li role="presentation" class="active"><a href="#score" role="tab" data-toggle="tab">Score</a></li>
                 <li role="presentation"><a href="#message" role="tab" data-toggle="tab">LED Message</a></li>
                 <li role="presentation"><a href="#watch" role="tab" data-toggle="tab">LED Watch</a></li>
+                <li role="presentation"><a href="#characters" role="tab" data-toggle="tab">Characters</a></li>
             </ul>
 
             <!-- Tab panes -->
@@ -225,12 +230,47 @@
                                         <button type="button" data-for="range-milliseconds" class="minus-slider btn btn-default"><i class="glyphicon glyphicon-minus"></i></button>
                                     </div>
                                 </div>
-                            </div>                           
+                            </div>
                         </div>
                     </div>
 
                 </div>
 
+                <div role="tabpanel" class="tab-pane" id="characters">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="pure-control-group">
+                                <label for="led-message">Left Character</label>
+                                <select class="form-control" id="left_character" size="5">
+                                    <option value="barberos">Swag y Barbería</option>
+                                    <option value="mediasligas">Las medias ligas</option>
+                                    <option value="ciruninjas">Ciruninjas</option>
+                                    <option value="renegados">Renegados</option>
+                                    <option value="coperos">Sindicato de coperos</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <div class="pure-control-group">
+                                <label for="led-message">Right Character</label>
+                                <select class="form-control" id="right_character" size="5">
+                                    <option value="barberos">Swag y Barbería</option>
+                                    <option value="mediasligas">Las medias ligas</option>
+                                    <option value="ciruninjas">Ciruninjas</option>
+                                    <option value="renegados">Renegados</option>
+                                    <option value="coperos">Sindicato de coperos</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <button id="btn-character-update" type="button" class="btn btn-primary btn-lg col-xs-12 btn-success"><i class="glyphicon glyphicon-send"></i> Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
