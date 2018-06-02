@@ -97,65 +97,70 @@
                         </div>
                     </div>
 
-                    <div class="panel panel-danger">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Red</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="panel panel-danger">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Red</h3>
+                                </div>
+                                <div class="panel-body">
+
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">Score</span>
+                                            <input id="score-red" class="form-control" type="number" placeholder="" value="<?php echo $var['score-red']; ?>">
+                                            <div class="input-group-btn">
+                                                <button type="button" data-for="score-red" class="plus btn btn-default"><i class="glyphicon glyphicon-plus"></i></button>
+                                                <button type="button" data-for="score-red" class="minus btn btn-default"><i class="glyphicon glyphicon-minus"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">Fouls</span>
+                                            <input id="fouls-red" class="form-control" type="number" placeholder="" value="<?php echo $var['fouls-red']; ?>">
+                                            <div class="input-group-btn">
+                                                <button type="button" data-for="fouls-red" class="plus btn btn-default"><i class="glyphicon glyphicon-plus"></i></button>
+                                                <button type="button" data-for="fouls-red" class="minus btn btn-default"><i class="glyphicon glyphicon-minus"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
-                        <div class="panel-body">
+                        <div class="col-md-6">
+                            <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Blue</h3>
+                                </div>
+                                <div class="panel-body">
 
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Score</span>
-                                    <input id="score-red" class="form-control" type="number" placeholder="" value="<?php echo $var['score-red']; ?>">
-                                    <div class="input-group-btn">
-                                        <button type="button" data-for="score-red" class="plus btn btn-default"><i class="glyphicon glyphicon-plus"></i></button>
-                                        <button type="button" data-for="score-red" class="minus btn btn-default"><i class="glyphicon glyphicon-minus"></i></button>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">Score</span>
+                                            <input id="score-blue" class="form-control" type="number" placeholder="" value="<?php echo $var['score-blue']; ?>">
+                                            <div class="input-group-btn">
+                                                <button type="button" data-for="score-blue" class="plus btn btn-default"><i class="glyphicon glyphicon-plus"></i></button>
+                                                <button type="button" data-for="score-blue" class="minus btn btn-default"><i class="glyphicon glyphicon-minus"></i></button>
+                                            </div>
+                                        </div>
                                     </div>
+
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">Fouls</span>
+                                            <input id="fouls-blue" class="form-control" type="number" placeholder="" value="<?php echo $var['fouls-blue']; ?>">
+                                            <div class="input-group-btn">
+                                                <button type="button" data-for="fouls-blue" class="plus btn btn-default"><i class="glyphicon glyphicon-plus"></i></button>
+                                                <button type="button" data-for="fouls-blue" class="minus btn btn-default"><i class="glyphicon glyphicon-minus"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
-
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Fouls</span>
-                                    <input id="fouls-red" class="form-control" type="number" placeholder="" value="<?php echo $var['fouls-red']; ?>">
-                                    <div class="input-group-btn">
-                                        <button type="button" data-for="fouls-red" class="plus btn btn-default"><i class="glyphicon glyphicon-plus"></i></button>
-                                        <button type="button" data-for="fouls-red" class="minus btn btn-default"><i class="glyphicon glyphicon-minus"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Blue</h3>
-                        </div>
-                        <div class="panel-body">
-
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Score</span>
-                                    <input id="score-blue" class="form-control" type="number" placeholder="" value="<?php echo $var['score-blue']; ?>">
-                                    <div class="input-group-btn">
-                                        <button type="button" data-for="score-blue" class="plus btn btn-default"><i class="glyphicon glyphicon-plus"></i></button>
-                                        <button type="button" data-for="score-blue" class="minus btn btn-default"><i class="glyphicon glyphicon-minus"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Fouls</span>
-                                    <input id="fouls-blue" class="form-control" type="number" placeholder="" value="<?php echo $var['fouls-blue']; ?>">
-                                    <div class="input-group-btn">
-                                        <button type="button" data-for="fouls-blue" class="plus btn btn-default"><i class="glyphicon glyphicon-plus"></i></button>
-                                        <button type="button" data-for="fouls-blue" class="minus btn btn-default"><i class="glyphicon glyphicon-minus"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
 
