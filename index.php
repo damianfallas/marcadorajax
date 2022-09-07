@@ -247,11 +247,12 @@
                             <div class="pure-control-group">
                                 <label for="led-message">Left Character</label>
                                 <select class="form-control" id="left_character" size="5">
-                                    <option value="barberos">Swag y Barbería</option>
-                                    <option value="mediasligas">Las medias ligas</option>
-                                    <option value="ciruninjas">Ciruninjas</option>
-                                    <option value="renegados">Renegados</option>
-                                    <option value="coperos">Sindicato de coperos</option>
+                                    <option value="lti">LTI</option>
+                                    <option value="fayah">Fayah</option>
+                                    <option value="sancarlos">San Carlos</option>
+                                    <option value="improbable">Improbable</option>
+                                    <option value="impromptu">Impromptu</option>
+                                    <option value="akelarre">Akelarre</option>
                                 </select>
                             </div>
                         </div>
@@ -259,11 +260,12 @@
                             <div class="pure-control-group">
                                 <label for="led-message">Right Character</label>
                                 <select class="form-control" id="right_character" size="5">
-                                    <option value="barberos">Swag y Barbería</option>
-                                    <option value="mediasligas">Las medias ligas</option>
-                                    <option value="ciruninjas">Ciruninjas</option>
-                                    <option value="renegados">Renegados</option>
-                                    <option value="coperos">Sindicato de coperos</option>
+                                    <option value="lti">LTI</option>
+                                    <option value="fayah">Fayah</option>
+                                    <option value="sancarlos">San Carlos</option>
+                                    <option value="improbable">Improbable</option>
+                                    <option value="impromptu">Impromptu</option>
+                                    <option value="akelarre">Akelarre</option>
                                 </select>
                             </div>
                         </div>

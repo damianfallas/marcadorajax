@@ -158,10 +158,11 @@ p.fk {
     z-index:100;
     margin: 0;
     padding: 0;
-    background-image: url("../../images/logolti.png");
+    background-image: url("../../images/logos/lti.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center; 
+    background-size: 50%;
 }
 
 .duplas-bg {
@@ -185,57 +186,41 @@ p.fk {
 	background-repeat: no-repeat, no-repeat;
 	background-position: bottom left;
 }
-
-.barberos-l .duplas-bg-left{
-	background-image: url(../../images/duplas/01b.png);
+.lti-l .duplas-bg-left,
+.lti-r .duplas-bg-right {
+	background-image: url(../../images/logos/lti.png);
 	background-size: 25%;
 }
 
-.barberos-r .duplas-bg-right{
-	background-image: url(../../images/duplas/01.png);
+.fayah-l .duplas-bg-left,
+.fayah-r .duplas-bg-right {
+	background-image: url(../../images/logos/fayah.png);
 	background-size: 25%;
 }
 
-.mediasligas-l .duplas-bg-left{
-	background-image: url(../../images/duplas/02b.png);
+.sancarlos-l .duplas-bg-left,
+.sancarlos-r .duplas-bg-right {
+	background-image: url(../../images/logos/sancarlos.png);
 	background-size: 25%;
 }
 
-.mediasligas-r .duplas-bg-right{
-	background-image: url(../../images/duplas/02.png);
+.improbable-l .duplas-bg-left,
+.improbable-r .duplas-bg-right {
+	background-image: url(../../images/logos/improbable.png);
 	background-size: 25%;
 }
 
-.ciruninjas-l .duplas-bg-left{
-	background-image: url(../../images/duplas/03.png);
-	background-size: 32%;
+.impromptu-l .duplas-bg-left,
+.impromptu-r .duplas-bg-right {
+	background-image: url(../../images/logos/impromptu.png);
+	background-size: 25%;
 }
 
-.ciruninjas-r .duplas-bg-right{
-	background-image: url(../../images/duplas/03.png);
-	background-size: 32%;
+.akelarre-l .duplas-bg-left,
+.akelarre-r .duplas-bg-right {
+	background-image: url(../../images/logos/akelarre.png);
+	background-size: 25%;
 }
-
-.coperos-l .duplas-bg-left{
-	background-image: url(../../images/duplas/04.png);
-	background-size: 26%;
-}
-
-.coperos-r .duplas-bg-right{
-	background-image: url(../../images/duplas/04.png);
-	background-size: 26%;
-}
-
-.renegados-l .duplas-bg-left{
-	background-image: url(../../images/duplas/05.png);
-	background-size: 23%;
-}
-
-.renegados-r .duplas-bg-right{
-	background-image: url(../../images/duplas/05.png);
-	background-size: 23%;
-}
-
 
 .top {
     margin-top: 2%;

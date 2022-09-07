@@ -149,4 +149,9 @@ $( document ).ready(function() {
         return (number < 10 ? '0' : '') + number; 
     }
 
+    $('video').on('ended', function () {
+        console.log("llloppp");
+        this.load();
+        this.play();
+    });
 });
